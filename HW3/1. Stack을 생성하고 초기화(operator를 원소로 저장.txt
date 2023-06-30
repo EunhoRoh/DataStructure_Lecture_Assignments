@@ -1,0 +1,23 @@
+1. Stack을 생성하고 초기화(operator를 원소로 저장하는 stack) 한 후, stack에 EOS를 넣고 시작한다.
+
+2. 입력 수식으로부터 token을 한 개씩 취하여 다음을 반복
+	- 해당 token이
+	1) '('이면 -> stack에 넣는다.
+	2) ')'이면, stack에서 '('이 나올때까지 pop하여 출려한다. 그리고 나서 '('를 stack에서 삭제
+	3) Operator면 stack top 원소의 우선순위가 자신(해당 token)의 우선순위보다 낮아질 때까지 pop 하여 출력한다. 그리고 나서 해당 token을 stack에 넣는다.
+	4) Operand면 그대로 출력한다.
+
+3.Stack에 남아있는 모든 원소를 순서대로 Pop하여 출력한다.
+
+
+1. Stack을 초기화
+2. 수식을 입력 받는다.
+3. 입력 수식에서 순서대로 token을 취하여 for문으로 input size 만큼 반복
+	3-1. 만약 input[i]의 token이 '(','[','{'라면 stack에 push 한다.
+	3-2. 만약 input[i]의 token이 ')',']','}'라면 stack에서 pop하여 type을 비교한다.
+		3-2-1. type이 맞지 않으면-> match error를 띄운다.
+		3-2-2. type이 계속해서 맞고 stack이 empty이면 -> 정상 수식이라고 띄운다.
+		3-2-3. size만큼 시도를 하지 않고 stack empty가 발생하면 -> 여는 괄호 부족 에러
+		3-2-4. 다 반복했는데 stack이 empty가 아니라면 -> 닫는 괄호 부족 에러 띄움
+
+
